@@ -6,6 +6,8 @@ import { SITE_NAME } from './site';
 // ツイートを解決できるため、実在しない値で問題ない。
 const DUMMY_USER = 'i';
 
+const DESCRIPTION_LIMIT = 280;
+
 export async function proxyFxTwitter(
     request: NextRequest,
     user: string,
@@ -123,7 +125,23 @@ export async function proxyFxTwitter(
         // 2. oEmbedリンクのみ置換 (ブランディング用)
         body = body.split('fxtwitter.com/owoembed').join(`${host}/owoembed`);
 
-        // 3. x.ohax.pw経由の場合のみ、X本体への自動遷移(meta refresh)にutm_sourceを付与
+        // 3. 長文は og:description を短く切る。Discord は長い説明を自前で省略し、
+        //    oEmbed の統計(いいね数など)まで見えなくなるため
+        body = body.replace(
+            /(<meta property="og:description" content=")([^"]*)(")/,
+            (match, prefix, content, suffix) => {
+                const text = content
+                    .replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+                const chars = Array.from(text);
+                if (chars.length <= DESCRIPTION_LIMIT) return match;
+                const cut = chars.slice(0, DESCRIPTION_LIMIT).join('').trimEnd() + '…';
+                const escaped = cut
+                    .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                return prefix + escaped + suffix;
+            }
+        );
+
+        // 4. x.ohax.pw経由の場合のみ、X本体への自動遷移(meta refresh)にutm_sourceを付与
         if (host.includes('ohax.pw')) {
             body = body.replace(
                 /(<meta http-equiv="refresh" content="0;url=)(https:\/\/(?:x|twitter)\.com\/[^"]*)(")/,
