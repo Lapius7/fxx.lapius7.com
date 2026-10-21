@@ -1,5 +1,7 @@
 # FxTwitter
 
+![FxTwitter](docs/screenshot.png)
+
 X(Twitter)の投稿 URL を、Discord などで画像・動画つきのプレビューになる URL に変換するサービスです。
 
 https://fxx.lapius7.com
