@@ -1,6 +1,6 @@
 # FxTwitter
 
-![FxTwitter](docs/screenshot.png)
+![FxTwitter](docs/preview.png)
 
 X(Twitter)の投稿 URL を、Discord などで画像・動画つきのプレビューになる URL に変換するサービスです。
 
