@@ -25,14 +25,3 @@ https://fxx.lapius7.com/jack/status/20
 | `/photo/N` | N 枚目の画像 |
 
 ユーザー名を省いた `/status/<id>` と `/<id>` も受け付けます。ブラウザで開いたときは、元の投稿へ移動します。
-
-## 仕組み
-
-埋め込み用のメタデータは、上流の FxTwitter(fxtwitter.com)から取得し、サービス名とリンクを書き換えて返します。画像・動画も上流を経由し、このサービス自身は投稿の内容を保存しません。
-
-## 開発
-
-```sh
-pnpm install
-pnpm dev
-```
