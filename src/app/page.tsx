@@ -49,7 +49,10 @@ export default function Page() {
             type="button"
             className={styles.icon}
             aria-label={dark ? "ライトテーマにする" : "ダークテーマにする"}
-            onClick={(e) => toggleTheme({ origin: e })}
+            onClick={(e) => {
+              toggleTheme({ origin: e });
+              e.currentTarget.blur();
+            }}
           >
             {dark ? <Sun size={16} aria-hidden /> : <Moon size={16} aria-hidden />}
           </button>
