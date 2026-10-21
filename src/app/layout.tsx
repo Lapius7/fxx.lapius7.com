@@ -10,6 +10,15 @@ import { ThemeProvider } from "./theme-provider";
 export const metadata: Metadata = {
   title: "FxTwitter — X の投稿を Discord できれいに見せる",
   description: "X(Twitter)の投稿 URL を、Discord などで画像・動画つきのプレビューになる URL に変換します。",
+  metadataBase: new URL("https://fxx.lapius7.com"),
+  openGraph: {
+    type: "website",
+    siteName: "FxTwitter",
+    title: "FxTwitter — X の投稿を Discord できれいに見せる",
+    description: "X(Twitter)の投稿 URL を、Discord などで画像・動画つきのプレビューになる URL に変換します。",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml", media: "(prefers-color-scheme: light)" },
