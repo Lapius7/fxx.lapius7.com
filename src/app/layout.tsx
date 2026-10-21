@@ -8,7 +8,7 @@ import { ThemeTransitionScript } from "@/components/transitions/theme-transition
 import { ThemeProvider } from "./theme-provider";
 
 export const metadata: Metadata = {
-  title: "FxX — X の投稿を Discord できれいに見せる",
+  title: "FxTwitter — X の投稿を Discord できれいに見せる",
   description: "X(Twitter)の投稿 URL を、Discord などで画像・動画つきのプレビューになる URL に変換します。",
   icons: {
     icon: [

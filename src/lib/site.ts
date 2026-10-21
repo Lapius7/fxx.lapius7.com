@@ -1,1 +1,1 @@
-export const SITE_NAME = 'FxX';
+export const SITE_NAME = 'FxTwitter';

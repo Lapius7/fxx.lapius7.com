@@ -43,7 +43,7 @@ export default function Page() {
   return (
     <div className={styles.page}>
       <header className={styles.top}>
-        <span className={styles.brand}>FxX</span>
+        <span className={styles.brand}>FxTwitter</span>
         <span className={styles.actions}>
           <button
             type="button"
@@ -135,7 +135,7 @@ export default function Page() {
       </main>
 
       <footer className={styles.footer}>
-        FxX · <a href={REPO}>Lapius7/fxx.lapius7.com</a>
+        FxTwitter · <a href={REPO}>Lapius7/fxx.lapius7.com</a>
       </footer>
     </div>
   );
